@@ -1,0 +1,13 @@
+{
+  "userid": "87d7de82-9a91-494b-aa5a-add8e143ade5",
+  "username": "JohnCena",
+  "role": "STUDENT",
+  "enrolled_classes": [
+    "4538008b-7675-4f96-8c72-9f08b9e7d870"
+  ],
+  "theme": "Soccer",
+  "colour_themes": "light",
+  "created_at": "2025-11-25T09:31:21.054574",
+  "last_login": "2025-11-25T09:31:21.054582",
+  "last_active": null
+}

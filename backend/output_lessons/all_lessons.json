@@ -1,0 +1,48 @@
+{
+    "lesson_001": [
+        {
+            "id": "q1",
+            "level": "easy",
+            "content": "Question 1 content",
+            "solution": "2",
+            "hints": [
+                "Think about adding small numbers first"
+            ],
+            "solution_feedback": "The answer is 2"
+        },
+        {
+            "id": "q2",
+            "level": "easy",
+            "content": "Question 2 content",
+            "solution": "5",
+            "hints": [
+                "Consider multiplication"
+            ],
+            "solution_feedback": "The answer is 5"
+        }
+    ],
+    "lesson_002": [
+        {
+            "id": "q3",
+            "level": "medium",
+            "content": "Question 3 content",
+            "solution": "144",
+            "hints": [
+                "Think about squares"
+            ],
+            "solution_feedback": "The answer is 144"
+        }
+    ],
+    "lesson_003": [
+        {
+            "id": "q4",
+            "level": "easy",
+            "content": "Question 4 content",
+            "solution": "10",
+            "hints": [
+                "Add all numbers"
+            ],
+            "solution_feedback": "The answer is 10"
+        }
+    ]
+}

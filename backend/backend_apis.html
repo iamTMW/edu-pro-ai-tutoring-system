@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Full API Documentation</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; line-height: 1.6; }
+h1, h2, h3, h4 { color: #333; }
+code { background: #eee; padding: 2px 4px; border-radius: 4px; }
+pre { background: #eee; padding: 10px; border-radius: 4px; overflow-x: auto; }
+.endpoint { background: #4CAF50; color: white; padding: 3px 6px; border-radius: 3px; }
+.method { font-weight: bold; }
+.section { margin-bottom: 50px; }
+</style>
+</head>
+<body>
+
+<h1>Full API Documentation</h1>
+<p>This document provides a complete reference for all API endpoints in the education app.</p>
+
+<!-- Authentication & User Management -->
+<div class="section">
+<h2>Authentication & User Management</h2>
+
+<h3><span class="method">POST</span> <span class="endpoint">/new-user-setup</span></h3>
+<p><strong>Description:</strong> Create a new user (student, teacher, or parent). Optional fields include email, first_name, last_name, student_ids, security questions, and theme.</p>
+<h4>Expects:</h4>
+<pre>{
+  "username": "string",
+  "password": "string",
+  "role": "STUDENT|TEACHER|PARENT",
+  "email": "optional string",
+  "first_name": "optional string",
+  "last_name": "optional string",
+  "student_ids": ["optional array of student IDs"],
+  "security_qas": [{"question": "string", "answer": "string"}],
+  "theme": "optional string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "userid": "string",
+  "username": "string",
+  "role": "STUDENT|TEACHER|PARENT",
+  "email": "string",
+  "message": "User created successfully"
+}</pre>
+<h4>Error Responses:</h4>
+<pre>{
+  "success": false,
+  "message": "Username already exists"
+} (HTTP 400)</pre>
+
+<h3><span class="method">POST</span> <span class="endpoint">/login</span></h3>
+<p><strong>Description:</strong> Log in a user with username and password.</p>
+<h4>Expects:</h4>
+<pre>{
+  "username": "string",
+  "password": "string"
+}</pre>
+<h4>Returns (Success):</h4>
+<pre>{
+  "success": true,
+  "userid": "string",
+  "username": "string",
+  "role": "STUDENT|TEACHER|PARENT"
+}</pre>
+<h4>Returns (Failure):</h4>
+<pre>{
+  "success": false,
+  "message": "Invalid username or password"
+} (HTTP 401)</pre>
+
+<h3><span class="method">POST</span> <span class="endpoint">/change-password</span></h3>
+<p><strong>Description:</strong> Change password for a user.</p>
+<h4>Expects:</h4>
+<pre>{
+  "username": "string",
+  "old_password": "string",
+  "new_password": "string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true|false,
+  "message": "Password changed successfully" | "Error message"
+}</pre>
+<h4>Error Responses:</h4>
+<pre>{
+  "success": false,
+  "message": "All fields are required"
+} (HTTP 400)</pre>
+
+<h3><span class="method">POST</span> <span class="endpoint">/forgot-password/question</span></h3>
+<p><strong>Description:</strong> Retrieve a security question for a given username.</p>
+<h4>Expects:</h4>
+<pre>{
+  "username": "string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "question": "string"
+}</pre>
+<h4>Error Responses:</h4>
+<pre>{
+  "success": false,
+  "message": "Missing username"
+} (HTTP 400)
+{
+  "success": false,
+  "message": "User not found"
+} (HTTP 404)
+{
+  "success": false,
+  "message": "No security question found"
+} (HTTP 400)</pre>
+
+<h3><span class="method">POST</span> <span class="endpoint">/forgot-password/reset</span></h3>
+<p><strong>Description:</strong> Reset a password using the answer to a security question.</p>
+<h4>Expects:</h4>
+<pre>{
+  "username": "string",
+  "answer": "string",
+  "new_password": "string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "message": "Password reset successfully"
+}</pre>
+<h4>Error Responses:</h4>
+<pre>{
+  "success": false,
+  "message": "All fields are required"
+} (HTTP 400)
+{
+  "success": false,
+  "message": "User not found"
+} (HTTP 404)
+{
+  "success": false,
+  "message": "Incorrect answer"
+} (HTTP 401)
+{
+  "success": false,
+  "message": "No security question found"
+} (HTTP 400)</pre>
+
+<h3><span class="method">GET</span> <span class="endpoint">/available-themes</span></h3>
+<p><strong>Description:</strong> Get the list of themes a user can choose from.</p>
+<h4>Returns:</h4>
+<pre>[
+  "Soccer", "Hockey", "Toys", "Pokemon", "Video Games", "Cars", "Fairies", "Horses", "Dolls"
+]</pre>
+
+<h3><span class="method">GET|POST</span> <span class="endpoint">/user/theme</span></h3>
+<p><strong>Description:</strong> Get or update a user's selected theme.</p>
+<h4>Expects (POST):</h4>
+<pre>{
+  "userid": "string",
+  "theme": "string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "message": "Theme updated to <theme>"
+}</pre>
+<h4>GET Returns:</h4>
+<pre>{
+  "success": true,
+  "theme": "current theme string"
+}</pre>
+<h4>Error Responses:</h4>
+<pre>{
+  "success": false,
+  "message": "Missing userid"
+} (HTTP 400)
+{
+  "success": false,
+  "message": "Missing theme"
+} (HTTP 400)</pre>
+</div>
+
+<!-- Teacher Endpoints -->
+<div class="section">
+<h2>Teacher Endpoints</h2>
+
+<h3><span class="method">POST</span> <span class="endpoint">/teacher/create-class</span></h3>
+<p><strong>Description:</strong> Teacher creates a new class. Accepts multipart/form-data including a JSON template and HTML lesson files.</p>
+<h4>Expects:</h4>
+<pre>
+- userid (string)
+- class_name (string)
+- description (optional string)
+- template (JSON file of lesson questions)
+- lesson_*.html files
+</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "class_id": "string"
+}</pre>
+
+<h3><span class="method">POST</span> <span class="endpoint">/teacher/students</span></h3>
+<p><strong>Description:</strong> Get the list of students in a class.</p>
+<h4>Expects:</h4>
+<pre>{
+  "class_id": "string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "students": ["student_userid1", "student_userid2", ...]
+}</pre>
+
+<h3><span class="method">POST</span> <span class="endpoint">/teacher/progress</span></h3>
+<p><strong>Description:</strong> Get the progress of all students in a class.</p>
+<h4>Expects:</h4>
+<pre>{
+  "class_id": "string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "students_progress": {
+    "student_userid1": { ... progress data ... },
+    "student_userid2": { ... progress data ... }
+  }
+}</pre>
+
+<h3><span class="method">POST</span> <span class="endpoint">/teacher/classes</span></h3>
+<p><strong>Description:</strong> Get all classes a teacher manages.</p>
+<h4>Expects:</h4>
+<pre>{
+  "userid": "string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "classes": [ { class data }, { class data } ]
+}</pre>
+
+<h3><span class="method">POST</span> <span class="endpoint">/teacher/delete-class</span></h3>
+<p><strong>Description:</strong> Delete a class. Only authorized teachers can delete their own classes.</p>
+<h4>Expects:</h4>
+<pre>{
+  "userid": "string",
+  "class_id": "string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "message": "Class <class_id> deleted"
+}</pre>
+<h4>Error Responses:</h4>
+<pre>{
+  "success": false,
+  "message": "Not authorized"
+} (HTTP 403)
+{
+  "success": false,
+  "message": "Class not found"
+} (HTTP 404)
+</pre>
+</div>
+
+<!-- Student Endpoints -->
+<div class="section">
+<h2>Student Endpoints</h2>
+
+<h3><span class="method">POST</span> <span class="endpoint">/student/join-class</span></h3>
+<p><strong>Description:</strong> Student joins a class.</p>
+<h4>Expects:</h4>
+<pre>{
+  "student_userid": "string",
+  "class_id": "string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "message": "Student joined class <class_id>"
+}</pre>
+
+<h3><span class="method">POST</span> <span class="endpoint">/student/leave-class</span></h3>
+<p><strong>Description:</strong> Student leaves a class.</p>
+<h4>Expects:</h4>
+<pre>{
+  "student_userid": "string",
+  "class_id": "string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "message": "Student left class <class_id>"
+}</pre>
+
+<h3><span class="method">POST</span> <span class="endpoint">/student/progress</span></h3>
+<p><strong>Description:</strong> Get progress for a student in a class.</p>
+<h4>Expects:</h4>
+<pre>{
+  "userid": "string",
+  "class_id": "string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "progress": { ... detailed lesson progress ... }
+}</pre>
+
+<h3><span class="method">POST</span> <span class="endpoint">/student/update-question</span></h3>
+<p><strong>Description:</strong> Update stats for a question in a lesson.</p>
+<h4>Expects:</h4>
+<pre>{
+  "userid": "string",
+  "class_id": "string",
+  "lesson_id": "string",
+  "question_id": "string",
+  "correct": true|false,
+  "time_taken": integer (seconds)
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "message": "Question <question_id> updated"
+}</pre>
+
+<h3><span class="method">POST</span> <span class="endpoint">/student/complete-lesson</span></h3>
+<p><strong>Description:</strong> Mark a lesson as complete and unlock the next lesson if exists.</p>
+<h4>Expects:</h4>
+<pre>{
+  "userid": "string",
+  "class_id": "string",
+  "lesson_id": "string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "completed_lesson": "lesson_id",
+  "unlocked_lesson": "lesson_id (optional)",
+  "message": "Lesson completed, next lesson unlocked"
+}</pre>
+
+<h3><span class="method">GET</span> <span class="endpoint">/student/get-progress</span></h3>
+<p><strong>Description:</strong> Retrieve the full progress JSON for a student in a class.</p>
+<h4>Query Parameters:</h4>
+<pre>?userid=string&class_id=string</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "progress": { ... detailed progress ... }
+}</pre>
+
+<h3><span class="method">POST</span> <span class="endpoint">/student/classes</span></h3>
+<p><strong>Description:</strong> List classes a student is enrolled in.</p>
+<h4>Expects:</h4>
+<pre>{
+  "userid": "string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "classes": [ ... ]
+}</pre>
+</div>
+
+<!-- Parent Endpoints -->
+<div class="section">
+<h2>Parent Endpoints</h2>
+
+<h3><span class="method">POST</span> <span class="endpoint">/parent/students</span></h3>
+<p><strong>Description:</strong> List student IDs associated with a parent.</p>
+<h4>Expects:</h4>
+<pre>{
+  "parent_userid": "string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "students": ["student_userid1", "student_userid2", ...]
+}</pre>
+
+<h3><span class="method">POST</span> <span class="endpoint">/parent/add-student</span></h3>
+<p><strong>Description:</strong> Add a student to a parent's profile.</p>
+<h4>Expects:</h4>
+<pre>{
+  "parent_userid": "string",
+  "student_id": "string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "message": "Student <student_id> added"
+}</pre>
+
+<h3><span class="method">POST</span> <span class="endpoint">/parent/remove-student</span></h3>
+<p><strong>Description:</strong> Remove a student from a parent's profile.</p>
+<h4>Expects:</h4>
+<pre>{
+  "parent_userid": "string",
+  "student_id": "string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "message": "Student <student_id> removed"
+}</pre>
+
+<h3><span class="method">POST</span> <span class="endpoint">/parent/students-progress</span></h3>
+<p><strong>Description:</strong> Get progress for all students linked to a parent.</p>
+<h4>Expects:</h4>
+<pre>{
+  "parent_userid": "string"
+}</pre>
+<h4>Returns:</h4>
+<pre>{
+  "success": true,
+  "students_progress": [
+    {
+      "student_id": "string",
+      "student_name": "string",
+      "classes": {
+        "class_id": { ... progress ... }
+      }
+    }
+  ]
+}</pre>
+</div>
+
+</body>
+</html>

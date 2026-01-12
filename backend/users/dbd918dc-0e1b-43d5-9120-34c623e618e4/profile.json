@@ -1,0 +1,13 @@
+{
+  "userid": "dbd918dc-0e1b-43d5-9120-34c623e618e4",
+  "username": "taha",
+  "role": "STUDENT",
+  "enrolled_classes": [
+    "1a696b35-83d2-465f-a44d-ed935384ad6b"
+  ],
+  "theme": "Soccer",
+  "colour_themes": "light",
+  "created_at": "2025-11-25T09:22:04.096692",
+  "last_login": "2025-11-25T09:22:04.096701",
+  "last_active": null
+}

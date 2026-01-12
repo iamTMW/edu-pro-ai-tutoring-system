@@ -1,0 +1,13 @@
+{
+  "userid": "7514a2ec-0d63-48de-8229-b95f222b9e3e",
+  "username": "van",
+  "role": "STUDENT",
+  "enrolled_classes": [
+    "5bc2b31f-72ef-4ead-8d89-4172c5a3c6a2"
+  ],
+  "theme": "Soccer",
+  "colour_themes": "light",
+  "created_at": "2025-11-25T22:11:03.012967",
+  "last_login": "2025-11-25T22:11:03.012978",
+  "last_active": null
+}

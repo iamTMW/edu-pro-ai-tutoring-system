@@ -1,0 +1,893 @@
+{
+  "Adding": {
+    "id": "Adding",
+    "title": "Lesson Adding",
+    "content": "content/Adding.html",
+    "completed": false,
+    "unlocked": true,
+    "questions": [
+      {
+        "id": "Adding_easy_1_cd166c",
+        "content": "8 + 4 =",
+        "solution": "12",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Adding_easy_2_cd166c",
+        "content": "4 + 6 =",
+        "solution": "10",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Adding_easy_3_cd166c",
+        "content": "3 + 6 =",
+        "solution": "9",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Adding_medium_1_cd166c",
+        "content": "13 + 10 =",
+        "solution": "23",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Adding_medium_2_cd166c",
+        "content": "42 + 10 =",
+        "solution": "52",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Adding_medium_3_cd166c",
+        "content": "14 + 8 =",
+        "solution": "22",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Adding_hard_1_cd166c",
+        "content": "10 + 7 =",
+        "solution": "17",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Adding_hard_2_cd166c",
+        "content": "8 + 10 + 9 =",
+        "solution": "27",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Adding_hard_3_cd166c",
+        "content": "42 + 8 + 9 =",
+        "solution": "59",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      }
+    ]
+  },
+  "Subtracting": {
+    "id": "Subtracting",
+    "title": "Lesson Subtracting",
+    "content": "content/Subtracting.html",
+    "completed": false,
+    "unlocked": false,
+    "questions": [
+      {
+        "id": "Subtracting_easy_1_cd166c",
+        "content": "9 - 7 =",
+        "solution": "2",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Subtracting_easy_2_cd166c",
+        "content": "5 - 1 =",
+        "solution": "4",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Subtracting_easy_3_cd166c",
+        "content": "6 - 5 =",
+        "solution": "1",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Subtracting_medium_1_cd166c",
+        "content": "42 - 18 =",
+        "solution": "24",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Subtracting_medium_2_cd166c",
+        "content": "28 - 1 =",
+        "solution": "27",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Subtracting_medium_3_cd166c",
+        "content": "40 - 32 =",
+        "solution": "8",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Subtracting_hard_1_cd166c",
+        "content": "49 - 11 =",
+        "solution": "38",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Subtracting_hard_2_cd166c",
+        "content": "36 - 34 - 0 =",
+        "solution": "2",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Subtracting_hard_3_cd166c",
+        "content": "4 - 0 - 0 =",
+        "solution": "4",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      }
+    ]
+  },
+  "Review Adding Subtracting": {
+    "id": "Review Adding Subtracting",
+    "title": "Lesson Review Adding Subtracting",
+    "content": "content/Review Adding Subtracting.html",
+    "completed": false,
+    "unlocked": false,
+    "questions": [
+      {
+        "id": "Review Adding Subtracting_easy_1_cd166c",
+        "content": "5 + 5 =",
+        "solution": "10",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Review Adding Subtracting_easy_2_cd166c",
+        "content": "9 + 1 =",
+        "solution": "10",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Review Adding Subtracting_easy_3_cd166c",
+        "content": "4 - 3 =",
+        "solution": "1",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Review Adding Subtracting_medium_1_cd166c",
+        "content": "34 + 10 =",
+        "solution": "44",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Review Adding Subtracting_medium_2_cd166c",
+        "content": "17 - 12 =",
+        "solution": "5",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Review Adding Subtracting_medium_3_cd166c",
+        "content": "31 - 22 =",
+        "solution": "9",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Review Adding Subtracting_hard_1_cd166c",
+        "content": "25 + 7 + 1 =",
+        "solution": "33",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Review Adding Subtracting_hard_2_cd166c",
+        "content": "23 + 8 =",
+        "solution": "31",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Review Adding Subtracting_hard_3_cd166c",
+        "content": "6 - 6 =",
+        "solution": "0",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      }
+    ]
+  },
+  "Adding With Blanks": {
+    "id": "Adding With Blanks",
+    "title": "Lesson Adding With Blanks",
+    "content": "content/Adding With Blanks.html",
+    "completed": false,
+    "unlocked": false,
+    "questions": [
+      {
+        "id": "Adding With Blanks_easy_1_cd166c",
+        "content": "_ + 2 = 4",
+        "solution": "2",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Adding With Blanks_easy_2_cd166c",
+        "content": "4 + _ = 8",
+        "solution": "4",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Adding With Blanks_easy_3_cd166c",
+        "content": "1 + _ = 7",
+        "solution": "6",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Adding With Blanks_medium_1_cd166c",
+        "content": "10 + _ = 13",
+        "solution": "3",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Adding With Blanks_medium_2_cd166c",
+        "content": "8 + _ = 10",
+        "solution": "2",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Adding With Blanks_medium_3_cd166c",
+        "content": "_ + 9 = 14",
+        "solution": "5",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Adding With Blanks_hard_1_cd166c",
+        "content": "__ + 23 = 31",
+        "solution": "8",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Adding With Blanks_hard_2_cd166c",
+        "content": "17 + __ = 37",
+        "solution": "20",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Adding With Blanks_hard_3_cd166c",
+        "content": "27 + __ = 36",
+        "solution": "9",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      }
+    ]
+  },
+  "Subtracting With Blanks": {
+    "id": "Subtracting With Blanks",
+    "title": "Lesson Subtracting With Blanks",
+    "content": "content/Subtracting With Blanks.html",
+    "completed": false,
+    "unlocked": false,
+    "questions": [
+      {
+        "id": "Subtracting With Blanks_easy_1_cd166c",
+        "content": "_ - 5 = 5",
+        "solution": "10",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Subtracting With Blanks_easy_2_cd166c",
+        "content": "5 - _ = 1",
+        "solution": "4",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Subtracting With Blanks_easy_3_cd166c",
+        "content": "2 - _ = 1",
+        "solution": "1",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Subtracting With Blanks_medium_1_cd166c",
+        "content": "_ - 9 = 1",
+        "solution": "10",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Subtracting With Blanks_medium_2_cd166c",
+        "content": "12 - _ = 10",
+        "solution": "2",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Subtracting With Blanks_medium_3_cd166c",
+        "content": "17 - _ = 12",
+        "solution": "5",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Subtracting With Blanks_hard_1_cd166c",
+        "content": "_ - 1 = 20",
+        "solution": "21",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Subtracting With Blanks_hard_2_cd166c",
+        "content": "_ - 20 = 12",
+        "solution": "32",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Subtracting With Blanks_hard_3_cd166c",
+        "content": "19 - _ = 7",
+        "solution": "12",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      }
+    ]
+  },
+  "Review Adding Subtracting With Blanks": {
+    "id": "Review Adding Subtracting With Blanks",
+    "title": "Lesson Review Adding Subtracting With Blanks",
+    "content": "content/Review Adding Subtracting With Blanks.html",
+    "completed": false,
+    "unlocked": false,
+    "questions": [
+      {
+        "id": "Review Adding Subtracting With Blanks_easy_1_cd166c",
+        "content": "_ - 2 = 2",
+        "solution": "4",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Review Adding Subtracting With Blanks_easy_2_cd166c",
+        "content": "_ - 9 = 1",
+        "solution": "10",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Review Adding Subtracting With Blanks_easy_3_cd166c",
+        "content": "_ + 5 = 9",
+        "solution": "4",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Review Adding Subtracting With Blanks_medium_1_cd166c",
+        "content": "21 - _ = 18",
+        "solution": "3",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Review Adding Subtracting With Blanks_medium_2_cd166c",
+        "content": "_ - 2 = 13",
+        "solution": "15",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Review Adding Subtracting With Blanks_medium_3_cd166c",
+        "content": "8 + _ = 23",
+        "solution": "15",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Review Adding Subtracting With Blanks_hard_1_cd166c",
+        "content": "24 - _ = 7",
+        "solution": "17",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Review Adding Subtracting With Blanks_hard_2_cd166c",
+        "content": "_ - 12 = 7",
+        "solution": "19",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Review Adding Subtracting With Blanks_hard_3_cd166c",
+        "content": "_ - 21 = 9",
+        "solution": "30",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      }
+    ]
+  },
+  "Adding With N Amount": {
+    "id": "Adding With N Amount",
+    "title": "Lesson Adding With N Amount",
+    "content": "content/Adding With N Amount.html",
+    "completed": false,
+    "unlocked": false,
+    "questions": [
+      {
+        "id": "Adding With N Amount_easy_1_cd166c",
+        "content": "__ + 5 + 7 = 15",
+        "solution": "3",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Adding With N Amount_easy_2_cd166c",
+        "content": "2 + 7 + __ = 13",
+        "solution": "4",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Adding With N Amount_easy_3_cd166c",
+        "content": "5 + __ + 2 = 13",
+        "solution": "6",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Adding With N Amount_medium_1_cd166c",
+        "content": "2 + 0 + __ + 2 = 8",
+        "solution": "4",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Adding With N Amount_medium_2_cd166c",
+        "content": "9 + 12 + 22 + __ = 66",
+        "solution": "23",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Adding With N Amount_medium_3_cd166c",
+        "content": "24 + 25 + __ + 25 = 96",
+        "solution": "22",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Adding With N Amount_hard_1_cd166c",
+        "content": "37 + 15 + 28 + __ = 122",
+        "solution": "42",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Adding With N Amount_hard_2_cd166c",
+        "content": "50 + __ + 33 + 49 = 169",
+        "solution": "37",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Adding With N Amount_hard_3_cd166c",
+        "content": "20 + 3 + 2 + __ = 52",
+        "solution": "27",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      }
+    ]
+  },
+  "Subtracting With N Amount": {
+    "id": "Subtracting With N Amount",
+    "title": "Lesson Subtracting With N Amount",
+    "content": "content/Subtracting With N Amount.html",
+    "completed": false,
+    "unlocked": false,
+    "questions": [
+      {
+        "id": "Subtracting With N Amount_easy_1_cd166c",
+        "content": "9 - __ - 1 = -1",
+        "solution": "9",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Subtracting With N Amount_easy_2_cd166c",
+        "content": "9 - __ - 2 = 2",
+        "solution": "5",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Subtracting With N Amount_easy_3_cd166c",
+        "content": "9 - __ - 3 = 2",
+        "solution": "4",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Subtracting With N Amount_medium_1_cd166c",
+        "content": "24 - 17 - __ - 2 = -5",
+        "solution": "10",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Subtracting With N Amount_medium_2_cd166c",
+        "content": "25 - 16 - __ - 3 = -9",
+        "solution": "15",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Subtracting With N Amount_medium_3_cd166c",
+        "content": "25 - 21 - __ - 8 = -16",
+        "solution": "12",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Subtracting With N Amount_hard_1_cd166c",
+        "content": "43 - 35 - 16 - __ = -12",
+        "solution": "4",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Subtracting With N Amount_hard_2_cd166c",
+        "content": "22 - 21 - 21 - __ = -37",
+        "solution": "17",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Subtracting With N Amount_hard_3_cd166c",
+        "content": "36 - 33 - __ - 20 = -39",
+        "solution": "22",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      }
+    ]
+  },
+  "Adding Subtracting With N Amount Review": {
+    "id": "Adding Subtracting With N Amount Review",
+    "title": "Lesson Adding Subtracting With N Amount Review",
+    "content": "content/Adding Subtracting With N Amount Review.html",
+    "completed": false,
+    "unlocked": false,
+    "questions": [
+      {
+        "id": "Adding Subtracting With N Amount Review_easy_1_cd166c",
+        "content": "9 - 4 - __ = 3",
+        "solution": "2",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Adding Subtracting With N Amount Review_easy_2_cd166c",
+        "content": "__ + 4 + 3 = 10",
+        "solution": "3",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Adding Subtracting With N Amount Review_easy_3_cd166c",
+        "content": "10 - __ - 5 = -1",
+        "solution": "6",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "easy"
+      },
+      {
+        "id": "Adding Subtracting With N Amount Review_medium_1_cd166c",
+        "content": "9 + 7 + 25 + __ = 58",
+        "solution": "17",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Adding Subtracting With N Amount Review_medium_2_cd166c",
+        "content": "20 + __ + 25 + 12 = 74",
+        "solution": "17",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Adding Subtracting With N Amount Review_medium_3_cd166c",
+        "content": "5 + __ + 22 + 13 = 63",
+        "solution": "23",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "medium"
+      },
+      {
+        "id": "Adding Subtracting With N Amount Review_hard_1_cd166c",
+        "content": "39 + __ + 6 + 46 = 120",
+        "solution": "29",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Adding Subtracting With N Amount Review_hard_2_cd166c",
+        "content": "50 - __ - 20 - 6 = -21",
+        "solution": "45",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      },
+      {
+        "id": "Adding Subtracting With N Amount Review_hard_3_cd166c",
+        "content": "46 - 28 - 20 - __ = -20",
+        "solution": "18",
+        "solution_feedback": null,
+        "hints": [
+          "Try breaking the problem into smaller steps."
+        ],
+        "level": "hard"
+      }
+    ]
+  }
+}

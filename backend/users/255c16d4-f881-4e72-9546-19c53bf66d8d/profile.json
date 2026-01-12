@@ -1,0 +1,13 @@
+{
+  "userid": "255c16d4-f881-4e72-9546-19c53bf66d8d",
+  "username": "fawaz",
+  "role": "STUDENT",
+  "enrolled_classes": [
+    "0cde7113-a574-4fcd-9585-edeeb2c2e309"
+  ],
+  "theme": "Soccer",
+  "colour_themes": "light",
+  "created_at": "2025-11-25T08:43:13.813935",
+  "last_login": "2025-11-25T08:43:13.813950",
+  "last_active": null
+}

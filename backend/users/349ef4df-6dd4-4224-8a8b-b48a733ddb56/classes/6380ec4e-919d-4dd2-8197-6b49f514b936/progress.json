@@ -1,0 +1,1039 @@
+{
+  "lessons": {
+    "Adding": {
+      "id": "Adding",
+      "title": "Lesson Adding",
+      "content": "content/Adding.html",
+      "completed": true,
+      "unlocked": true,
+      "questions": {
+        "easy": [
+          {
+            "id": "Adding_easy_1_349ef4",
+            "content": "5 + 9 =",
+            "solution": "14",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": true,
+            "time_taken": 0
+          },
+          {
+            "id": "Adding_easy_2_349ef4",
+            "content": "9 + 7 =",
+            "solution": "16",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": true,
+            "time_taken": 0
+          },
+          {
+            "id": "Adding_easy_3_349ef4",
+            "content": "5 + 4 =",
+            "solution": "9",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": true,
+            "time_taken": 0
+          }
+        ],
+        "medium": [
+          {
+            "id": "Adding_medium_1_349ef4",
+            "content": "7 + 24 =",
+            "solution": "31",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": true,
+            "time_taken": 0
+          },
+          {
+            "id": "Adding_medium_2_349ef4",
+            "content": "43 + 7 =",
+            "solution": "50",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": true,
+            "time_taken": 0
+          },
+          {
+            "id": "Adding_medium_3_349ef4",
+            "content": "4 + 47 =",
+            "solution": "51",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": true,
+            "time_taken": 0
+          }
+        ],
+        "hard": [
+          {
+            "id": "Adding_hard_1_349ef4",
+            "content": "33 + 1 =",
+            "solution": "34",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": true,
+            "time_taken": 0
+          },
+          {
+            "id": "Adding_hard_2_349ef4",
+            "content": "6 + 2 + 1 =",
+            "solution": "9",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": true,
+            "time_taken": 0
+          },
+          {
+            "id": "Adding_hard_3_349ef4",
+            "content": "22 + 4 + 10 =",
+            "solution": "36",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": true,
+            "time_taken": 0
+          }
+        ]
+      }
+    },
+    "Subtracting": {
+      "id": "Subtracting",
+      "title": "Lesson Subtracting",
+      "content": "content/Subtracting.html",
+      "completed": false,
+      "unlocked": true,
+      "questions": {
+        "easy": [
+          {
+            "id": "Subtracting_easy_1_349ef4",
+            "content": "Ash has 8 Pikachu, but 8 of them get scared and run away to find their trainers. How many Pikachu are left with Ash?",
+            "solution": "0",
+            "solution_feedback": "Ash started with 8 Pikachu. 8 Pikachu ran away. To find out how many are left, we subtract the number that ran away from the number Ash started with. So, 8 - 8. When you subtract a number from itself, the answer is always zero.",
+            "hints": [
+              "Think about what happens when you take away the same number of things you started with.",
+              "If you have 8 apples and you give away all 8 apples, how many apples do you have left?"
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting_easy_2_349ef4",
+            "content": "Misty has 7 Poliwag, but all 7 of them decide to swim to a different pond. How many Poliwag does Misty have now?",
+            "solution": "0",
+            "solution_feedback": "Misty started with 7 Poliwag. All 7 of them swam away. To find out how many are left, we subtract the number that swam away from the number Misty started with. So, 7 - 7. Subtracting a number from itself always results in zero.",
+            "hints": [
+              "This is like the last problem! What happens when you take away all the things you have?",
+              "If you have 7 stickers and you give away all 7 stickers, how many stickers do you have left?"
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting_easy_3_349ef4",
+            "content": "Brock has 10 Geodude. He gives 8 of them to a friend to help with training. How many Geodude does Brock have left?",
+            "solution": "2",
+            "solution_feedback": "Brock started with 10 Geodude. He gave away 8 Geodude. To find out how many he has left, we subtract the number he gave away from the number he started with. So, 10 - 8. You can count down from 10: 9, 8. That's 2 steps down.",
+            "hints": [
+              "You are taking some away, so you need to subtract.",
+              "Imagine you have 10 candies and you eat 8 of them. Count how many candies are left."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ],
+        "medium": [
+          {
+            "id": "Subtracting_medium_1_349ef4",
+            "content": "May has 23 Beautifly. She releases 10 of them into the wild so they can find their own paths. How many Beautifly does May have left?",
+            "solution": "13",
+            "solution_feedback": "May started with 23 Beautifly. She released 10 Beautifly. To find out how many she has left, we subtract the number she released from the number she started with. So, 23 - 10. You can think of 23 as 20 and 3. 20 - 10 is 10. Then add back the 3, which is 10 + 3 = 13.",
+            "hints": [
+              "This is a subtraction problem. Start with the bigger number and take away the smaller number.",
+              "You can break this problem into smaller steps. First, take away 10 from 20, which is 10. Then, you still need to take away the remaining 3."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting_medium_2_349ef4",
+            "content": "Dawn has 31 Piplup. 7 of her Piplup get lost during a storm. How many Piplup does Dawn have left?",
+            "solution": "24",
+            "solution_feedback": "Dawn started with 31 Piplup. 7 Piplup got lost. To find out how many are left, we subtract the number that got lost from the number Dawn started with. So, 31 - 7. If we take 1 away from 31, we get 30. We still need to take away 6 more (since 1 + 6 = 7). From 30, taking away 6 gives us 24.",
+            "hints": [
+              "You are taking away, so it's subtraction.",
+              "If you have 31 toys and you lose 7, it's easier to count up from 7 to 31 or to subtract 1 from 31, then subtract 6 more."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting_medium_3_349ef4",
+            "content": "Gary has 26 Magikarp. He trades 7 of them for a rare candy. How many Magikarp does Gary have left?",
+            "solution": "19",
+            "solution_feedback": "Gary started with 26 Magikarp. He traded 7 Magikarp. To find out how many he has left, we subtract the number he traded from the number he started with. So, 26 - 7. If we take away 6 from 26, we get 20. We still need to take away 1 more (since 6 + 1 = 7). From 20, taking away 1 gives us 19.",
+            "hints": [
+              "Start with the total number Gary has and subtract the number he traded.",
+              "You can think of 26 as 20 and 6. First, take away 6 from 26 to get 20. Then, you still need to take away 1 more (since 6 + 1 = 7)."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ],
+        "hard": [
+          {
+            "id": "Subtracting_hard_1_349ef4",
+            "content": "Nurse Joy has 31 Chansey helping at the Pokemon Center. 19 of them go on a field trip to a special healing garden. How many Chansey are left at the Pokemon Center?",
+            "solution": "12",
+            "solution_feedback": "Nurse Joy started with 31 Chansey. 19 Chansey went on a field trip. To find out how many are left, we subtract the number on the field trip from the number Nurse Joy started with. So, 31 - 19. A good way to do this is to subtract 20 first. 31 - 20 = 11. Since 19 is one less than 20, we subtracted one too many. So we add 1 back to our answer. 11 + 1 = 12.",
+            "hints": [
+              "This is a subtraction problem. The number of Chansey left will be smaller than the starting number.",
+              "To subtract 19, you can first subtract 20, which is easy (31 - 20 = 11). Since you subtracted 1 too many, you need to add 1 back."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting_hard_2_349ef4",
+            "content": "A wild Caterpie is trying to learn how to battle. It uses a move 3 times, but the first 2 moves miss. How many of its moves actually hit their target?",
+            "solution": "1",
+            "solution_feedback": "The Caterpie tried to battle 3 times. The first 2 moves missed. This means we start with 3 and take away the 2 that missed: 3 - 2 = 1. Then, we need to consider the third move. Since the problem doesn't say the third move missed, we assume it hit. So, we have the 1 hit from the first calculation and the 1 hit from the third move. However, the question is asking about the result of \"3 - 2 - 0\". So, we take away the 2 that missed from the 3 tries: 3 - 2 = 1. Then, we take away the 0 that missed (if any) from the 1: 1 - 0 = 1.",
+            "hints": [
+              "You start with a total number of moves and take away the ones that missed.",
+              "Imagine the Caterpie tried 3 times. The first time missed, so 2 tries left. The second time missed, so 1 try left. Did the third one hit or miss?"
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting_hard_3_349ef4",
+            "content": "A wild Growlithe has 8 fiery sparks. 7 of the sparks fizzle out. How many fiery sparks are still glowing?",
+            "solution": "1",
+            "solution_feedback": "The Growlithe had 8 fiery sparks. 7 sparks fizzled out. To find out how many sparks are still glowing, we subtract the number of sparks that fizzled out from the total number of sparks. So, 8 - 7. When you subtract 7 from 8, you are left with 1.",
+            "hints": [
+              "You need to subtract the sparks that fizzled out from the total number of sparks.",
+              "Think about it like this: if you have 8 cookies and you eat 7, how many cookies are left?"
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ]
+      }
+    },
+    "Review Adding Subtracting": {
+      "id": "Review Adding Subtracting",
+      "title": "Lesson Review Adding Subtracting",
+      "content": "content/Review Adding Subtracting.html",
+      "completed": false,
+      "unlocked": false,
+      "questions": {
+        "easy": [
+          {
+            "id": "Review Adding Subtracting_easy_1_349ef4",
+            "content": "9 - 3 =",
+            "solution": "6",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Review Adding Subtracting_easy_2_349ef4",
+            "content": "8 - 6 =",
+            "solution": "2",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Review Adding Subtracting_easy_3_349ef4",
+            "content": "5 - 2 =",
+            "solution": "3",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ],
+        "medium": [
+          {
+            "id": "Review Adding Subtracting_medium_1_349ef4",
+            "content": "11 - 11 =",
+            "solution": "0",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Review Adding Subtracting_medium_2_349ef4",
+            "content": "20 + 9 =",
+            "solution": "29",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Review Adding Subtracting_medium_3_349ef4",
+            "content": "28 - 1 =",
+            "solution": "27",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ],
+        "hard": [
+          {
+            "id": "Review Adding Subtracting_hard_1_349ef4",
+            "content": "36 - 13 - 7 =",
+            "solution": "16",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Review Adding Subtracting_hard_2_349ef4",
+            "content": "27 + 10 =",
+            "solution": "37",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Review Adding Subtracting_hard_3_349ef4",
+            "content": "13 - 4 =",
+            "solution": "9",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ]
+      }
+    },
+    "Adding With Blanks": {
+      "id": "Adding With Blanks",
+      "title": "Lesson Adding With Blanks",
+      "content": "content/Adding With Blanks.html",
+      "completed": false,
+      "unlocked": false,
+      "questions": {
+        "easy": [
+          {
+            "id": "Adding With Blanks_easy_1_349ef4",
+            "content": "_ + 7 = 9",
+            "solution": "2",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding With Blanks_easy_2_349ef4",
+            "content": "6 + _ = 9",
+            "solution": "3",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding With Blanks_easy_3_349ef4",
+            "content": "_ + 1 = 5",
+            "solution": "4",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ],
+        "medium": [
+          {
+            "id": "Adding With Blanks_medium_1_349ef4",
+            "content": "_ + 2 = 3",
+            "solution": "1",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding With Blanks_medium_2_349ef4",
+            "content": "_ + 10 = 19",
+            "solution": "9",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding With Blanks_medium_3_349ef4",
+            "content": "1 + _ = 10",
+            "solution": "9",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ],
+        "hard": [
+          {
+            "id": "Adding With Blanks_hard_1_349ef4",
+            "content": "24 + __ = 37",
+            "solution": "13",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding With Blanks_hard_2_349ef4",
+            "content": "__ + 24 = 33",
+            "solution": "9",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding With Blanks_hard_3_349ef4",
+            "content": "__ + 15 = 45",
+            "solution": "30",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ]
+      }
+    },
+    "Subtracting With Blanks": {
+      "id": "Subtracting With Blanks",
+      "title": "Lesson Subtracting With Blanks",
+      "content": "content/Subtracting With Blanks.html",
+      "completed": false,
+      "unlocked": false,
+      "questions": {
+        "easy": [
+          {
+            "id": "Subtracting With Blanks_easy_1_349ef4",
+            "content": "_ - 4 = 3",
+            "solution": "7",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting With Blanks_easy_2_349ef4",
+            "content": "_ - 5 = 4",
+            "solution": "9",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting With Blanks_easy_3_349ef4",
+            "content": "_ - 4 = 0",
+            "solution": "4",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ],
+        "medium": [
+          {
+            "id": "Subtracting With Blanks_medium_1_349ef4",
+            "content": "9 - _ = 3",
+            "solution": "6",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting With Blanks_medium_2_349ef4",
+            "content": "_ - 8 = 12",
+            "solution": "20",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting With Blanks_medium_3_349ef4",
+            "content": "_ - 4 = 0",
+            "solution": "4",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ],
+        "hard": [
+          {
+            "id": "Subtracting With Blanks_hard_1_349ef4",
+            "content": "_ - 24 = 25",
+            "solution": "49",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting With Blanks_hard_2_349ef4",
+            "content": "_ - 24 = 21",
+            "solution": "45",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting With Blanks_hard_3_349ef4",
+            "content": "44 - _ = 31",
+            "solution": "13",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ]
+      }
+    },
+    "Review Adding Subtracting With Blanks": {
+      "id": "Review Adding Subtracting With Blanks",
+      "title": "Lesson Review Adding Subtracting With Blanks",
+      "content": "content/Review Adding Subtracting With Blanks.html",
+      "completed": false,
+      "unlocked": false,
+      "questions": {
+        "easy": [
+          {
+            "id": "Review Adding Subtracting With Blanks_easy_1_349ef4",
+            "content": "_ - 3 = 6",
+            "solution": "9",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Review Adding Subtracting With Blanks_easy_2_349ef4",
+            "content": "_ + 3 = 9",
+            "solution": "6",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Review Adding Subtracting With Blanks_easy_3_349ef4",
+            "content": "_ - 10 = 0",
+            "solution": "10",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ],
+        "medium": [
+          {
+            "id": "Review Adding Subtracting With Blanks_medium_1_349ef4",
+            "content": "6 + _ = 7",
+            "solution": "1",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Review Adding Subtracting With Blanks_medium_2_349ef4",
+            "content": "_ - 8 = 12",
+            "solution": "20",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Review Adding Subtracting With Blanks_medium_3_349ef4",
+            "content": "_ + 6 = 14",
+            "solution": "8",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ],
+        "hard": [
+          {
+            "id": "Review Adding Subtracting With Blanks_hard_1_349ef4",
+            "content": "__ + 16 = 40",
+            "solution": "24",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Review Adding Subtracting With Blanks_hard_2_349ef4",
+            "content": "__ + 19 = 41",
+            "solution": "22",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Review Adding Subtracting With Blanks_hard_3_349ef4",
+            "content": "_ - 5 = 31",
+            "solution": "36",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ]
+      }
+    },
+    "Adding With N Amount": {
+      "id": "Adding With N Amount",
+      "title": "Lesson Adding With N Amount",
+      "content": "content/Adding With N Amount.html",
+      "completed": false,
+      "unlocked": false,
+      "questions": {
+        "easy": [
+          {
+            "id": "Adding With N Amount_easy_1_349ef4",
+            "content": "0 + 4 + __ = 8",
+            "solution": "4",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding With N Amount_easy_2_349ef4",
+            "content": "10 + __ + 1 = 15",
+            "solution": "4",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding With N Amount_easy_3_349ef4",
+            "content": "8 + __ + 10 = 23",
+            "solution": "5",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ],
+        "medium": [
+          {
+            "id": "Adding With N Amount_medium_1_349ef4",
+            "content": "9 + __ + 14 + 13 = 55",
+            "solution": "19",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding With N Amount_medium_2_349ef4",
+            "content": "21 + 0 + __ + 19 = 42",
+            "solution": "2",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding With N Amount_medium_3_349ef4",
+            "content": "3 + __ + 23 + 4 = 42",
+            "solution": "12",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ],
+        "hard": [
+          {
+            "id": "Adding With N Amount_hard_1_349ef4",
+            "content": "__ + 2 + 32 + 40 = 95",
+            "solution": "21",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding With N Amount_hard_2_349ef4",
+            "content": "20 + __ + 16 + 29 = 115",
+            "solution": "50",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding With N Amount_hard_3_349ef4",
+            "content": "41 + 47 + __ + 23 = 133",
+            "solution": "22",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ]
+      }
+    },
+    "Subtracting With N Amount": {
+      "id": "Subtracting With N Amount",
+      "title": "Lesson Subtracting With N Amount",
+      "content": "content/Subtracting With N Amount.html",
+      "completed": false,
+      "unlocked": false,
+      "questions": {
+        "easy": [
+          {
+            "id": "Subtracting With N Amount_easy_1_349ef4",
+            "content": "__ - 6 - 3 = 1",
+            "solution": "10",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting With N Amount_easy_2_349ef4",
+            "content": "10 - 9 - __ = -3",
+            "solution": "4",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting With N Amount_easy_3_349ef4",
+            "content": "5 - __ - 3 = -2",
+            "solution": "4",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ],
+        "medium": [
+          {
+            "id": "Subtracting With N Amount_medium_1_349ef4",
+            "content": "__ - 10 - 5 - 5 = 4",
+            "solution": "24",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting With N Amount_medium_2_349ef4",
+            "content": "19 - 14 - __ - 5 = -13",
+            "solution": "13",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting With N Amount_medium_3_349ef4",
+            "content": "25 - 13 - 9 - __ = -1",
+            "solution": "4",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ],
+        "hard": [
+          {
+            "id": "Subtracting With N Amount_hard_1_349ef4",
+            "content": "__ - 47 - 29 - 10 = -39",
+            "solution": "47",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting With N Amount_hard_2_349ef4",
+            "content": "40 - 22 - __ - 14 = -11",
+            "solution": "15",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Subtracting With N Amount_hard_3_349ef4",
+            "content": "45 - 18 - __ - 2 = 12",
+            "solution": "13",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ]
+      }
+    },
+    "Adding Subtracting With N Amount Review": {
+      "id": "Adding Subtracting With N Amount Review",
+      "title": "Lesson Adding Subtracting With N Amount Review",
+      "content": "content/Adding Subtracting With N Amount Review.html",
+      "completed": false,
+      "unlocked": false,
+      "questions": {
+        "easy": [
+          {
+            "id": "Adding Subtracting With N Amount Review_easy_1_349ef4",
+            "content": "7 - 2 - __ = 4",
+            "solution": "1",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding Subtracting With N Amount Review_easy_2_349ef4",
+            "content": "__ - 3 - 2 = -1",
+            "solution": "4",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding Subtracting With N Amount Review_easy_3_349ef4",
+            "content": "__ + 4 + 3 = 8",
+            "solution": "1",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ],
+        "medium": [
+          {
+            "id": "Adding Subtracting With N Amount Review_medium_1_349ef4",
+            "content": "14 + 15 + 4 + __ = 46",
+            "solution": "13",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding Subtracting With N Amount Review_medium_2_349ef4",
+            "content": "21 - 18 - __ - 11 = -20",
+            "solution": "12",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding Subtracting With N Amount Review_medium_3_349ef4",
+            "content": "20 + __ + 19 + 1 = 61",
+            "solution": "21",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ],
+        "hard": [
+          {
+            "id": "Adding Subtracting With N Amount Review_hard_1_349ef4",
+            "content": "49 - __ - 27 - 8 = -20",
+            "solution": "34",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding Subtracting With N Amount Review_hard_2_349ef4",
+            "content": "__ - 34 - 20 - 5 = -21",
+            "solution": "38",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          },
+          {
+            "id": "Adding Subtracting With N Amount Review_hard_3_349ef4",
+            "content": "15 + 28 + __ + 2 = 75",
+            "solution": "30",
+            "solution_feedback": null,
+            "hints": [
+              "Try breaking the problem into smaller steps."
+            ],
+            "correct": false,
+            "time_taken": null
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "userid": "6ee2b3ec-2f2a-4851-a5a4-ff00d26f64ba",
+  "username": "George",
+  "role": "STUDENT",
+  "enrolled_classes": [
+    "64eb77e2-b3b9-45f0-96e5-0116698a1962"
+  ],
+  "theme": "Soccer",
+  "colour_themes": "light",
+  "created_at": "2025-11-25T08:44:37.306198",
+  "last_login": "2025-11-25T08:44:37.306215",
+  "last_active": null
+}

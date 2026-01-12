@@ -1,0 +1,538 @@
+"use client";
+
+import { useState, useMemo, useEffect, useRef } from "react";
+import Link from "next/link";
+import { mockModules, getAllQuestionsForLesson, getLessonById } from "@/lib/mock-data/modules";
+import { Card, CardContent } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import QuestionCard from "@/components/modules/QuestionCard";
+import ModuleList from "@/components/modules/ModuleList";
+import { ThemeToggle } from "@/components/modules/ThemeToggle";
+import { useAuth } from '@/contexts/AuthContext';
+import { LogOut } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+
+
+
+// Below is the Adaptive rating
+const expected = (ru, rq) => 1 / (1 + Math.pow(10, (rq - ru) / 400));
+const baseK = (rq) => (rq >= 1500 ? 48 : rq >= 1100 ? 36 : 28);
+const streakMult = (streak) => (streak >= 8 ? 1.5 : streak >= 5 ? 1.25 : streak >= 3 ? 1.1 : 1.0);
+
+function updateMMR({ ru, rq, correct, streak }) {
+  const E = expected(ru, rq);
+  const S = correct ? 1 : 0;
+  const K = baseK(rq);
+  const mult = streakMult(streak);
+  const delta = K * (S - E) * mult;
+  const newRU = Math.max(200, Math.round(ru + delta));
+  try { localStorage.setItem("pp_mmr", String(newRU)); } catch {}
+  return { ru: newRU };
+}
+
+// Below is the Difficulty + timer config
+const DIFFS = /** @type const */ (["easy", "medium", "hard"]);
+const TIME_LIMITS = { easy: 17, medium: 12, hard: 9 }; // seconds (hidden)
+const QUICK_PROMOTE_RATIO = 0.5; // if answered in <= 50% of limit → promote
+const SLOW_DEMOTE_RATIO   = 1.0; // if answered in >= 100% of limit → demote
+const harder = (d) => (d === "easy" ? "medium" : d === "medium" ? "hard" : "hard");
+const easier = (d) => (d === "hard" ? "medium" : d === "medium" ? "easy" : "easy");
+
+// Below are helper
+const REQUIRED_PER_MODULE = 3; // Q1 easy, Q2-Q3 adaptive
+
+function buildIdMap(lesson) {
+  const map = {};
+  for (const d of DIFFS) (lesson?.questions?.[d] || []).forEach((q) => (map[q.id] = q));
+  return map;
+}
+
+function pickFromBucket(lesson, diff, usedIds) {
+  const bucket = lesson?.questions?.[diff] || [];
+  const candidates = bucket.filter((q) => !usedIds.has(q.id));
+  return candidates.length ? candidates[0] : null;
+}
+
+function fallbackPick(lesson, desiredDiff, usedIds) {
+  const order =
+    desiredDiff === "hard" ? ["hard", "medium", "easy"]
+    : desiredDiff === "medium" ? ["medium", "easy", "hard"]
+    : ["easy", "medium", "hard"];
+  for (const d of order) {
+    const q = pickFromBucket(lesson, d, usedIds);
+    if (q) return { q, d };
+  }
+  return { q: null, d: desiredDiff };
+}
+
+// Below is the Smart Next (within current bucket)
+function pickSmartNextIndex(ru, questions, completedSet, currentIndex) {
+  if (!questions?.length) return currentIndex;
+  const pool = questions
+    .map((q, i) => ({ i, q, r: q.rating ?? 1100 }))
+    .filter(({ q, i }) => !completedSet.has(q.id) && i !== currentIndex);
+
+  if (!pool.length) return Math.min(currentIndex + 1, Math.max(0, questions.length - 1));
+
+  const ahead = pool.filter(({ i }) => i > currentIndex);
+  const candidates = ahead.length ? ahead : pool;
+
+  candidates.sort((a, b) => {
+    const da = Math.abs(a.r - ru), db = Math.abs(b.r - ru);
+    if (da !== db) return da - db;
+    const fa = a.i > currentIndex ? a.i - currentIndex : Number.MAX_SAFE_INTEGER;
+    const fb = b.i > currentIndex ? b.i - currentIndex : Number.MAX_SAFE_INTEGER;
+    if (fa !== fb) return fa - fb;
+    return Math.abs(a.i - currentIndex) - Math.abs(b.i - currentIndex);
+  });
+  return candidates[0].i;
+}
+
+export default function DashboardContent({ user }) {
+  const { logout } = useAuth();
+  // below is the Core state
+  const [modules, setModules] = useState(mockModules);
+  const [selectedModuleId, setSelectedModuleId] = useState(mockModules[0].id);
+
+  // Below, Path = exactly 3 required questions for a module (in order)
+  const [pathByModule, setPathByModule] = useState({}); // { [moduleId]: Array<{id, difficulty}> }
+  const [pathIndex, setPathIndex] = useState(0);        // pointer within current module path (0..len-1)
+
+  // Below is ompleted (answers) per module
+  const [completedQuestions, setCompletedQuestions] = useState({}); // { [moduleId]: Set<questionId> }
+
+  // Below is review mode per module (true once finished; allows back/forward browsing)
+  const [reviewByModule, setReviewByModule] = useState({}); // { [moduleId]: boolean }
+
+  // Below is gonna be hidden/adaptive state
+  const [difficulty, setDifficulty] = useState("easy"); // mirrors current path item's difficulty
+  const [ru, setRU] = useState(1100);
+  const [streak, setStreak] = useState(0);
+  const smartNextRef = useRef(true);
+
+  // Below is the Timer (hidden): only start time
+  const questionStartTsRef = useRef(null);
+
+  // Below is promotion choice computed at answer-time; applied when creating next path item
+  const pendingAdvanceRef = useRef(null); // { forId, nextDifficulty } | null
+
+  // Below it will reset streak + difficulty on first load; hydrate rating if present
+  useEffect(() => {
+    try {
+      setStreak(0);
+      setDifficulty("easy");
+      localStorage.setItem("pp_streak_ui", "0");
+      localStorage.setItem("pp_diff_hidden", "easy");
+      const storedRU = Number(localStorage.getItem("pp_mmr"));
+      if (!Number.isNaN(storedRU) && storedRU) setRU(storedRU);
+    } catch {}
+  }, []);
+
+  // Below it will persist streak/difficulty
+  useEffect(() => { try { localStorage.setItem("pp_streak_ui", String(streak)); } catch {} }, [streak]);
+  useEffect(() => { try { localStorage.setItem("pp_diff_hidden", difficulty); } catch {} }, [difficulty]);
+
+  // Selected module + lessons
+  const selectedModule = useMemo(
+    () => modules.find((m) => m.id === selectedModuleId),
+    [modules, selectedModuleId]
+  );
+  const lesson = useMemo(() => getLessonById(selectedModuleId), [selectedModuleId]);
+  const idMap = useMemo(() => buildIdMap(lesson), [lesson]);
+  const allQuestions = useMemo(() => getAllQuestionsForLesson(selectedModuleId), [selectedModuleId]);
+
+  // Below it will ensure the path exists for this module (first question is always EASY)
+  useEffect(() => {
+    setPathIndex(0);
+    setStreak(0);
+    setDifficulty("easy");
+    pendingAdvanceRef.current = null;
+
+    setPathByModule((prev) => {
+      if (prev[selectedModuleId]?.length) return prev;
+      const used = new Set();
+      const first = pickFromBucket(lesson, "easy", used) || fallbackPick(lesson, "easy", used).q;
+      const start = first ? [{ id: first.id, difficulty: "easy" }] : [];
+      return { ...prev, [selectedModuleId]: start };
+    });
+
+    // If this module is already completed, enter review mode automatically
+    setReviewByModule((prev) => ({
+      ...prev,
+      [selectedModuleId]: !!modules.find((m) => m.id === selectedModuleId)?.completed,
+    }));
+  }, [selectedModuleId, lesson, modules]);
+
+  // Convenience getters
+  const currentPath = pathByModule[selectedModuleId] || [];
+  const currentPathItem = currentPath[pathIndex] || null;
+  const currentQuestion = currentPathItem ? idMap[currentPathItem.id] : null;
+
+  // Below is the completed set for current module
+  const currentModuleCompleted = completedQuestions[selectedModuleId] || new Set();
+  const isReview = !!reviewByModule[selectedModuleId];
+
+  // Below it will start hidden timer when question changes
+  useEffect(() => {
+    questionStartTsRef.current = Date.now();
+    pendingAdvanceRef.current = null; // clear on navigation
+    if (currentPathItem?.difficulty && currentPathItem.difficulty !== difficulty) {
+      setDifficulty(currentPathItem.difficulty);
+    }
+  }, [currentPathItem?.id, pathIndex]);
+
+  // Helpers dependent on current
+  const isAnsweredCurrent =
+    !!currentPathItem && currentModuleCompleted.has(currentPathItem.id);
+
+  /* Handlers */
+  const handleModuleSelect = (module) => {
+    setSelectedModuleId(module.id);
+  };
+
+  const handleModuleComplete = () => {
+    // Reset streak + difficulty when a module finishes
+    setStreak(0);
+    setDifficulty("easy");
+    try {
+      localStorage.setItem("pp_streak_ui", "0");
+      localStorage.setItem("pp_diff_hidden", "easy");
+    } catch {}
+
+    // mark module completed + unlock next
+    const updatedModules = modules.map((mod) =>
+      mod.id === selectedModuleId ? { ...mod, completed: true, status: "completed" } : mod
+    );
+    const currentIndex = updatedModules.findIndex((m) => m.id === selectedModuleId);
+    if (currentIndex < updatedModules.length - 1) {
+      updatedModules[currentIndex + 1].unlocked = true;
+      updatedModules[currentIndex + 1].status = "current";
+    }
+    setModules(updatedModules);
+
+    // Enable review mode & park at first of the 3
+    setReviewByModule((prev) => ({ ...prev, [selectedModuleId]: true }));
+    setPathIndex(0);
+  };
+
+  const handleNextQuestion = () => {
+    // Block advancing during active session until this question is answered
+    if (!isReview && !isAnsweredCurrent) return;
+
+    // In REVIEW MODE: just move across the built path (0..len-1), no completion checks
+    if (isReview) {
+      if (pathIndex < currentPath.length - 1) setPathIndex((i) => i + 1);
+      return;
+    }
+
+    const answeredCount = currentPath.filter((p) => currentModuleCompleted.has(p.id)).length;
+
+    // If we already have all REQUIRED answered, finish and switch to review
+    if (currentPath.length === REQUIRED_PER_MODULE && answeredCount === REQUIRED_PER_MODULE) {
+      handleModuleComplete();
+      return;
+    }
+
+    // If a future path item already exists, just move the pointer
+    if (pathIndex < currentPath.length - 1) {
+      setPathIndex((i) => i + 1);
+      return;
+    }
+
+    // We are at the tail; maybe we need to create the next required question
+    if (currentPath.length < REQUIRED_PER_MODULE) {
+      const used = new Set(currentPath.map((p) => p.id));
+
+      // Determine desired difficulty based on pending promo
+      let desiredDiff = currentPathItem?.difficulty || "easy";
+      if (pendingAdvanceRef.current?.forId === currentPathItem?.id) {
+        desiredDiff = pendingAdvanceRef.current.nextDifficulty;
+      }
+
+      const { q, d } = fallbackPick(lesson, desiredDiff, used);
+      if (q) {
+        const nextItem = { id: q.id, difficulty: d };
+        setPathByModule((prev) => {
+          const arr = [...(prev[selectedModuleId] || []), nextItem];
+          return { ...prev, [selectedModuleId]: arr };
+        });
+        // move pointer to new tail
+        setPathIndex((i) => i + 1);
+        return;
+      }
+    }
+  };
+
+  const handlePreviousQuestion = () => {
+    pendingAdvanceRef.current = null;
+    if (pathIndex > 0) setPathIndex((i) => i - 1);
+  };
+
+  // Daniel's priority-based difficulty adjustment
+  const handleQuestionCorrect = ({ hintsUsed = 0, usedSolution = false, wrongAttempts = 0 }) => {
+    if (!currentQuestion || !currentPathItem) return;
+
+    // Speed vs (hidden) time limit — measured NOW, not on Next
+    const limit = TIME_LIMITS[currentPathItem.difficulty];
+    const elapsedSec = questionStartTsRef.current
+      ? (Date.now() - questionStartTsRef.current) / 1000
+      : limit;
+
+    const quick = elapsedSec <= limit * QUICK_PROMOTE_RATIO;
+    const slow = elapsedSec >= limit * SLOW_DEMOTE_RATIO;
+
+    // Update streak
+    setStreak((s) => s + 1);
+
+    // Update MMR
+    const rq = currentQuestion.rating ?? 1100;
+    const mmr = updateMMR({ ru, rq, correct: true, streak });
+    setRU(mmr.ru);
+
+    // Save completion immediately (so you can view solution without leaving)
+    const newCompleted = new Set(currentModuleCompleted);
+    newCompleted.add(currentPathItem.id);
+    setCompletedQuestions((prev) => ({ ...prev, [selectedModuleId]: newCompleted }));
+
+    // Daniel's PRIORITY-BASED DIFFICULTY ADJUSTMENT
+    let nextDifficulty = currentPathItem.difficulty;
+
+    // Get total help used (hints + solution)
+    const totalHelpUsed = hintsUsed + (usedSolution ? 1 : 0);
+
+    // Priority 1: Hints/Solution usage (most important)
+    if (totalHelpUsed >= 2) {
+      // Used 2+ helps → demote to easier
+      nextDifficulty = easier(currentPathItem.difficulty);
+    } else if (totalHelpUsed === 1) {
+      // Used 1 help → keep same difficulty
+      nextDifficulty = currentPathItem.difficulty;
+    } else {
+      // Priority 2: Wrong attempts (if no hints used)
+      if (wrongAttempts >= 3) {
+        // 3+ wrong attempts → demote to easier
+        nextDifficulty = easier(currentPathItem.difficulty);
+      } else if (wrongAttempts === 2) {
+        // 2 wrong attempts → keep same difficulty
+        nextDifficulty = currentPathItem.difficulty;
+      } else if (wrongAttempts <= 1) {
+        // Priority 3: Time-based adjustment (only if no hints used and few attempts)
+        if (quick) {
+          nextDifficulty = harder(currentPathItem.difficulty);
+        } else if (slow) {
+          nextDifficulty = easier(currentPathItem.difficulty);
+        }
+        // else keep same difficulty
+      }
+    }
+
+    pendingAdvanceRef.current = { forId: currentPathItem.id, nextDifficulty };
+  };
+
+  /* Derived UI values */
+  const answeredCount = (pathByModule[selectedModuleId] || []).filter((p) =>
+    currentModuleCompleted.has(p.id)
+  ).length;
+
+  const progressValue = (answeredCount / REQUIRED_PER_MODULE) * 100;
+
+  // Streak pill tiers
+  // const streakTier =
+  //   streak >= 10 ? "bg-red-500/20 text-red-400 border-red-500/40"
+  //   : streak >= 7 ? "bg-orange-500/20 text-orange-300 border-orange-500/40"
+  //   : streak >= 4 ? "bg-yellow-500/20 text-yellow-300 border-yellow-500/40"
+  //   : "bg-gray-500/20 text-gray-300 border-gray-500/40";
+
+  const streakTier =
+  streak >= 10
+    ? "bg-red-500/20 text-red-600 border-red-500/40"
+    : streak >= 7
+    ? "bg-orange-500/20 text-orange-600 border-orange-500/40"
+    : streak >= 4
+    ? "bg-yellow-500/20 text-yellow-600 border-yellow-500/40"
+    : "bg-gray-200 text-gray-700 border-gray-400";
+
+
+  const streakEmoji = streak >=3 ? "🔥🔥" : streak >= 2 ? "🔥" : streak >= 1 ? "⚡️" : "•";
+
+  // const diffBadge =
+  //   difficulty === "hard"
+  //     ? "bg-fuchsia-600/20 text-fuchsia-300 border-fuchsia-500/40"
+  //     : difficulty === "medium"
+  //     ? "bg-blue-600/20 text-blue-300 border-blue-500/40"
+  //     : "bg-emerald-600/20 text-emerald-300 border-emerald-500/40";
+
+  const diffBadge =
+  difficulty === "hard"
+    ? "bg-fuchsia-600/20 text-fuchsia-700 border-fuchsia-500/60"
+    : difficulty === "medium"
+    ? "bg-blue-600/20 text-blue-700 border-blue-500/60"
+    : "bg-emerald-600/20 text-emerald-700 border-emerald-500/60";
+
+  // Review badge
+  const reviewBadge =
+    "bg-gray-200 text-gray-700 border-gray-400";
+
+  return (
+    <div className="flex h-screen">
+      {/* Sidebar */}
+      <div className="w-80 border-r bg-gray-50 dark:bg-gray-900">
+  <div className="p-4 border-b">
+    <div className="flex items-center justify-between mb-2">
+      <h1 className="text-xl font-bold">
+        Good Morning, {user?.username || 'Student'}
+      </h1>
+
+      {/* Right side: Settings + Theme toggle */}
+      <div className="flex items-center gap-2">
+        <Link
+          href="/settings"
+          className="text-xs px-2 py-1 rounded border border-gray-300 dark:border-gray-600
+                     text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+        >
+          Settings
+        </Link>
+        <ThemeToggle />
+      </div>
+    </div>
+
+    <Button
+      onClick={logout}
+      variant="outline"
+      size="sm"
+      className="w-full mt-2"
+    >
+      <LogOut className="h-4 w-4 mr-2" />
+      Logout
+    </Button>
+  </div>
+
+  <ModuleList
+    modules={modules}
+    selectedModule={selectedModule}
+    onModuleSelect={handleModuleSelect}
+  />
+</div>
+
+
+      {/* Main */}
+      <div className="flex-1 p-8 overflow-auto">
+        <div className="max-w-2xl mx-auto space-y-6">
+
+          {selectedModule?.unlocked ? (
+            <>
+              {/* Progress + Streak */}
+              <Card>
+                <CardContent className="py-4">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex-1">
+                      <div className="flex justify-between text-sm mb-2">
+                        <span className="font-medium">Module Progress</span>
+                        <span className="text-muted-foreground">
+                          {answeredCount} / {REQUIRED_PER_MODULE} completed
+                        </span>
+                      </div>
+                      <Progress value={progressValue} />
+                    </div>
+
+                    {/* Streak pill */}
+                    <div
+                      className={`ml-4 shrink-0 border rounded-xl px-3 py-1.5 text-sm font-medium flex items-center gap-2 ${streakTier}`}
+                      title="Streak: consecutive correct answers"
+                    >
+                      <span>{streakEmoji}</span>
+                      <span>Streak {streak}</span>
+                    </div>
+                  </div>
+
+                  {/* Current (auto) difficulty + review mode pill */}
+                  <div className="mt-3 flex items-center gap-2">
+                    <span
+                      className={`inline-block border rounded-lg px-2.5 py-0.5 text-xs uppercase tracking-wide ${diffBadge}`}
+                      title="Auto-adjusted based on your speed and accuracy"
+                    >
+                      {difficulty} • auto
+                    </span>
+                    {!!reviewByModule[selectedModuleId] && (
+                      <span
+                        className={`inline-block border rounded-lg px-2.5 py-0.5 text-xs uppercase tracking-wide ${reviewBadge}`}
+                        title="Module completed — browsing your 3 answered questions"
+                      >
+                        Review
+                      </span>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Current Question */}
+              {currentQuestion ? (
+                <>
+                  <div className="flex justify-between items-center">
+                    <h2 className="text-sm text-muted-foreground">
+                      Question {pathIndex + 1} of {Math.max(1, (pathByModule[selectedModuleId] || []).length)} ({difficulty})
+                    </h2>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={handlePreviousQuestion}
+                        disabled={pathIndex === 0}
+                        className="text-sm px-3 py-1 rounded border disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 dark:hover:bg-gray-800"
+                      >
+                        Previous
+                      </button>
+
+                      {/* Hide Next until answered (unless review mode) */}
+                      {isReview || isAnsweredCurrent ? (
+                        <button
+                          onClick={handleNextQuestion}
+                          disabled={isReview && pathIndex >= (pathByModule[selectedModuleId]?.length || 1) - 1}
+                          className="text-sm px-3 py-1 rounded border disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 dark:hover:bg-gray-800"
+                          title={
+                            isReview
+                              ? "Next (review)"
+                              : pendingAdvanceRef.current
+                              ? `Next (${pendingAdvanceRef.current.nextDifficulty})`
+                              : "Next"
+                          }
+                        >
+                          Next
+                        </button>
+                      ) : (
+                        <span className="text-xs text-muted-foreground px-2 py-1">
+                          Submit to continue
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <QuestionCard
+                    key={`${selectedModuleId}-${currentQuestion.id}`}
+                    module={selectedModule}
+                    question={currentQuestion}
+                    onCorrect={handleQuestionCorrect}
+                    isCompleted={currentModuleCompleted.has(currentQuestion.id)}
+                  />
+                </>
+              ) : (
+                <Card>
+                  <CardContent className="p-8 text-center">
+                    <p className="text-gray-500">
+                      No question selected. Try pressing <span className="font-medium">Next</span>.
+                    </p>
+                  </CardContent>
+                </Card>
+              )}
+            </>
+          ) : (
+            <Card>
+              <CardContent className="p-8 text-center">
+                <p className="text-gray-500">Choose a module to get started...</p>
+              </CardContent>
+            </Card>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}

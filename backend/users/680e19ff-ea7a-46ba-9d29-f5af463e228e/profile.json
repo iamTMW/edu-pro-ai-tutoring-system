@@ -1,0 +1,13 @@
+{
+  "userid": "680e19ff-ea7a-46ba-9d29-f5af463e228e",
+  "username": "Fawaz",
+  "role": "STUDENT",
+  "enrolled_classes": [
+    "7f51cc7f-6311-46f6-aab0-61bdbad52bda"
+  ],
+  "theme": "Toys",
+  "colour_themes": "light",
+  "created_at": "2025-11-25T08:41:37.236821",
+  "last_login": "2025-11-25T08:41:37.236835",
+  "last_active": null
+}

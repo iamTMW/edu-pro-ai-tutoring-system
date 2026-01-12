@@ -1,0 +1,13 @@
+{
+  "userid": "40958a8f-3f0a-45e9-836f-a8af9257b29d",
+  "username": "girl",
+  "role": "STUDENT",
+  "enrolled_classes": [
+    "60b353ca-bc89-4c1f-a00f-cf11cbcb47ca"
+  ],
+  "theme": "Soccer",
+  "colour_themes": "light",
+  "created_at": "2025-11-25T22:33:26.796160",
+  "last_login": "2025-11-25T22:33:26.796169",
+  "last_active": null
+}
