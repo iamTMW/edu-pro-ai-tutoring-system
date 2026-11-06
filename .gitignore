@@ -41,3 +41,13 @@ yarn-error.log*
 next-env.d.ts
 
 .idea/
+
+# Local runtime-generated learning records and credentials
+/backend/users/*
+!/backend/users/.gitkeep
+!/backend/users/auth_table.template.csv
+!/backend/users/classes.template.csv
+
+# Python cache and compiled bytecode
+__pycache__/
+*.py[cod]
