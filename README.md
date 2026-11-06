@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# EduPro — Adaptive Tutoring Platform
 
-## Getting Started
+A collaborative prototype for **personalized Grade 2 math practice**, designed around the different needs of students, teachers, and parents.
 
-First, run the development server:
+**Stack:** Next.js · React · JavaScript · Flask · Python
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Overview
+
+EduPro explores a more structured way to deliver practice questions, guided hints, and progress views to different users. The project combines a Next.js frontend with a Flask API and supporting Python modules for practice-question generation and classroom workflows.
+
+### Key workflows
+
+- **Students:** access practice and learning-progress views.
+- **Teachers:** work with classroom and student-progress interfaces.
+- **Parents:** use role-specific views designed around students' learning.
+- **Application services:** API routes for account setup, login, classroom interactions, and progress-related operations.
+
+The repository is a **prototype**, not a production educational product.
+
+## Architecture
+
+```mermaid
+flowchart LR
+  A[Next.js interface] -->|API requests| B[Flask backend]
+  B --> C[Question generation and learning logic]
+  B --> D[Local data files and classroom records]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Requirements and design
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+The six-person team designed role-specific workflows and iterated on user-facing features. The project explored user flows, use cases, and interface planning before and during implementation.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Run the frontend
 
-## Learn More
+```bash
+npm install
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open `http://localhost:3000`. The complete experience may require separate Python/Flask backend setup and suitable local development data; frontend startup alone does not guarantee that every feature is usable.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Repository layout
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/` — Next.js pages and role-specific routes
+- `components/` — reusable interface components
+- `contexts/` — frontend application state
+- `backend/` — Flask routes, question generation, and supporting modules
 
-## Deploy on Vercel
+## Development and security notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This is a learning/prototyping codebase. Authentication, data storage, and local configuration require further security review before deployment with real users or sensitive records. Do not use live personal data or real credentials when testing it.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Team credit
+
+Built collaboratively by a **six-person development team**. The Git history records individual contributions. This portfolio entry describes the team project rather than claiming sole authorship.
