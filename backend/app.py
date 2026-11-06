@@ -101,7 +101,7 @@ def login():
     data = request.get_json()
     username = data.get("username")
     password = data.get("password")
-    print("Login attempt:", username, password)
+    # Never log submitted credentials.
 
     user = get_user_if_valid(username, password)
     if user:
